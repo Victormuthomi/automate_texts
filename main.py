@@ -1,24 +1,48 @@
-class Text:
-	"""A model to send messages to my crush"""
-	def __init__(self, paragraph):
-	    """initialize the paragraph where the message to be sent is held"""
-	    self.paragraph = paragraph
+import pywhatkit as kit
 
-	def fist_line(self, message):
+class Text:
+    """A model to send messages to my crush"""
+    def __init__(self,  phone_number, paragraph):
+        """initialize the paragraph where the message to be sent is held"""
+        self.phone_number = phone_number
+        self.paragraph = paragraph
+
+    def first_line(self, message):
         """"Sends the first message of the convesation"""
         self.message = message
-        message = "Hello this are automated messages don't reply untill you get the messgae that
-        the messages are over"
+        kit.sendwhatmsg(self.phone_number,self.message, 23, 10)
 
-	def line(self):
-	    """Gets the lines from the paragraph"""
-        #Split the paragrap into different lines using a for loop
+    def line(self, line):
+         """Gets the lines from the paragraph"""
+         self.line = line
+         kit.sendwhatmsg(self.phone_number,self.line, 23, 25)
 
-        lines = paragraph.split('\n')
 
-        #save each line skipping empty lines
+# Using 'with' to open the file
+with open('paragraph.txt', 'r') as file:
+    paragraph = file.read()
 
-	    for line in lines:
-            if line.strip():
-                print(line)
+# No need to call file.close() 
+
+#split the paragraph into different lines using a for loop
+lines =paragraph.split('\n')
+#save each line skipping empty lines
+for line in lines:
+    if line.strip():
+        line = line
+        
+paragraph = Text("+254734615998", paragraph )
+
+paragraph.line(line)
+
+
+
+
+
+
+
+
+
+
+
 
