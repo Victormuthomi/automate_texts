@@ -7,7 +7,7 @@ class Text:
     def __init__(self, phone_number, filename):
         """initialize the paragraph where the message to be sent is held"""
         self.phone_number = phone_number
-        with open(filename, 'r') as file:
+        with open('paragraph.txt' 'r') as file:
             self.paragraph = file.read().split('\n')
 
     def send_messages(self):
@@ -35,6 +35,6 @@ class Text:
         kit.sendwhatmsg(self.phone_number, "The messages are over. You can reply now.", hour, min)
 
 # Replace 'text.txt' with the name of your file
-paragraph = Text("+254734615998", 'text.txt')
+paragraph = Text("+254734615998", 'paragraph.txt')
 paragraph.send_messages()
 
